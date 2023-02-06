@@ -45,6 +45,7 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+static const char *explocmd[] = { "pcmanfm", NULL };
 static const char *webcmd[] = { "firefox", NULL };
 static const char *roficmd[] = { "rofi", "-show", "run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
@@ -60,6 +61,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = webcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = sscmd } },
+	{ MODKEY,                       XK_e,      spawn,          {.v = explocmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
