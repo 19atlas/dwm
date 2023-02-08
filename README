@@ -5,8 +5,8 @@ dwm is an extremely fast, small, and dynamic window manager for X.
 
 Requirements
 ------------
-In order to build dwm you need the Xlib header files and JetBrainsMono NF font also rofi for app launcher.
-
+In order to build dwm you need the Xlib header files, JetBrainsMono NF font, rofi for app launcher.
+(also libxinerama and freetype2)
 Installation
 ------------
 Edit config.mk to match your local setup (dwm is installed into
@@ -39,7 +39,14 @@ like this in your .xinitrc:
     	sleep 1
     done &
     exec dwm
-
+Auto stating DWM (using startx)
+-------------
+you can write this code in `.bash_profile`:
+```
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
+```
 
 Configuration
 -------------
